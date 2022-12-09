@@ -13,6 +13,7 @@ The program is reasonably fast and can easily generate more than $N = 1000$ poin
 ```
 python main.py [half-axis1 length] [half-axis2 length] [Npoints]
 ```
+Data is saved into a file called `data.txt`. Each row $i$ designates a point $(x_i, y_i)$.
 
 For example, to segment an ellipse with parameters $(a, b) = (4, 2)$ into $N = 30$ points:
 ```
