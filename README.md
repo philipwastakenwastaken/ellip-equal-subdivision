@@ -1,9 +1,7 @@
 # Equal subdivision of an ellipse into N points
 The program generates $N$ points on an ellipse with axes $(a, b)$, where the arc length between each point is identical.
 The total arc length of the ellipse is solved (numerically) by the integral
-$$
-\int^{2\pi}_{0} \sqrt{a^2 \sin^2{t} + b^2 \cos^2{t}} \text{d}t.
-$$
+![image](arc_length_formula.png)
 Using the above, we split the task into $N$ optimization problems to find coordinates of each segment.
 The program is reasonably fast and can easily generate more than $N = 1000$ points.
 
