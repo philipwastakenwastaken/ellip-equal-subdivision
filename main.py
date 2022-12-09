@@ -22,9 +22,8 @@ if __name__ == '__main__':
     # Ellipse dimensions
     a = float(sys.argv[1])
     b = float(sys.argv[2])
+    n_holes = int(sys.argv[3])
 
-    # Number of holes
-    n_holes = 30
     total_rad = 2 * math.pi
     radian_per_hole = total_rad / n_holes
 
@@ -56,5 +55,6 @@ if __name__ == '__main__':
     plt.plot(x_coords, y_coords, 'o')
     plt.title('Optim. method')
     plt.axis('equal')
+    plt.savefig('ellipse.png')
     plt.show()
     
