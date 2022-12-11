@@ -1,5 +1,4 @@
-from ellipsetools.ellipse import Ellipse
-from ellipsetools.subdivide_ellipse import subdivide_ellipse
+from ellipsetools import Ellipse, subdivide_ellipse
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -21,8 +20,10 @@ if __name__ == '__main__':
     b = float(sys.argv[2])
     n_holes = int(sys.argv[3])
 
-    a_prime = a - 6
-    b_prime = b - 6
+    # Holes are drilled 6 mm from the edge of the ellipse
+    hole_offset = 6
+    a_prime = a - hole_offset
+    b_prime = b - hole_offset
 
     ellipse = Ellipse(a_prime, b_prime)
     x_coords, y_coords = subdivide_ellipse(ellipse, n_holes)
@@ -38,8 +39,10 @@ if __name__ == '__main__':
     n_points = 300
     t = 0
     subdiv = (2 * math.pi) / n_points
-    outer_ellipse = Ellipse(a, b)
 
+    # Create the outer ellipse for reference. This is the actual ellipse which the holes
+    # will be drilled on.
+    outer_ellipse = Ellipse(a, b)
     outer_x = []
     outer_y = []
     for i in range(n_points):

@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ellipsedivision"
-version = "0.0.1"
+name = "ellipsetools"
+version = "0.0.5"
 authors = [{name="Philip Nielsen", email="philiptofte@hotmail.com"}]
 description = "Equal subdivision of an ellipse into N points"
 readme = "README.md"

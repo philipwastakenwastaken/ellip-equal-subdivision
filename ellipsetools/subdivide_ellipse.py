@@ -1,17 +1,22 @@
-import math
 from ellipsetools.ellipse import Ellipse
-from scipy.optimize import minimize
+
 import numpy as np
+from scipy.optimize import minimize
+from numpy.typing import NDArray
+
+from typing import Tuple
+import math
 
 
-def arc_length_loss_function(theta, ellipse, arc_subdiv, r):
+
+def arc_length_loss_function(theta: float, ellipse: Ellipse, arc_subdiv: float, r: float) -> float:
     dist, _ = ellipse.arc_length(r, theta)
 
     # MSE estimator
     return (dist - arc_subdiv) ** 2
 
 
-def subdivide_ellipse(ellipse, N):
+def subdivide_ellipse(ellipse: Ellipse, N: int) -> Tuple[NDArray[np.float], NDArray[np.float]]:
     a = ellipse.a
     b = ellipse.b
 
@@ -22,15 +27,13 @@ def subdivide_ellipse(ellipse, N):
     arc_length, _ = ellipse.arc_length()
     arc_subdiv = arc_length / N
 
-    print(f'Perimeter: {arc_length} Subdiv length: {arc_subdiv}')
-
     # Knowing the size of each arc length, we must now segment the ellipse.
     t = 0
     x, y = ellipse.point(t)
     x_coords = [x]
     y_coords = [y]
     ts = []
-    for i in range(N - 1):
+    for _ in range(N - 1):
         # Estimate of next t-value
         t_prime = t + radian_per_hole
 
