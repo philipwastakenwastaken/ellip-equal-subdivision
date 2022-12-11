@@ -1,6 +1,5 @@
 import math
-from ellipse import Ellipse
-import matplotlib.pyplot as plt
+from ellipsetools.ellipse import Ellipse
 from scipy.optimize import minimize
 import numpy as np
 

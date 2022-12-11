@@ -1,5 +1,5 @@
-from ellipse import Ellipse
-from subdivide_ellipse import subdivide_ellipse
+from ellipsetools.ellipse import Ellipse
+from ellipsetools.subdivide_ellipse import subdivide_ellipse
 import matplotlib.pyplot as plt
 import numpy as np
 
