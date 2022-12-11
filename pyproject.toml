@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ellipsedivision"
+version = "0.0.1"
+authors = [{name="Philip Nielsen", email="philiptofte@hotmail.com"}]
+description = "Equal subdivision of an ellipse into N points"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["ellipse", "subdivision", "arc length", "perimeter"]
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotli8"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/philipwastakenwastaken/ellipse-equal-point-division"
+"Bug Tracker" = "https://github.com/philipwastakenwastaken/ellipse-equal-point-division/issues"
