@@ -8,7 +8,6 @@ from typing import Tuple
 import math
 
 
-
 def arc_length_loss_function(theta: float, ellipse: Ellipse, arc_subdiv: float, r: float) -> float:
     dist, _ = ellipse.arc_length(r, theta)
 
