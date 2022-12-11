@@ -62,5 +62,5 @@ if __name__ == '__main__':
     plt.plot(outer_x, outer_y, '-')
     plt.title('Optim. method')
     plt.axis('equal')
-    plt.savefig('ellipse.png')
+    plt.savefig('images/ellipse.png')
     plt.show()
