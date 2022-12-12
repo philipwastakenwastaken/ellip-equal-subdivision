@@ -8,7 +8,7 @@ from typing import Tuple
 import math
 
 
-def arc_length_loss_function(theta: float, ellipse: Ellipse, arc_subdiv: float, r: float) -> float:
+def _arc_length_loss_function(theta: float, ellipse: Ellipse, arc_subdiv: float, r: float) -> float:
     dist, _ = ellipse.arc_length(r, theta)
 
     # MSE estimator
@@ -16,6 +16,25 @@ def arc_length_loss_function(theta: float, ellipse: Ellipse, arc_subdiv: float, 
 
 
 def subdivide_ellipse(ellipse: Ellipse, N: int) -> Tuple[NDArray[np.float], NDArray[np.float]]:
+    """
+    Subdivides the ellipse into N points, where the arc length between each point
+    is equal.
+
+    Parameters
+    ----------
+    ellipse : Ellipse
+        The ellipse which to subdivide.
+    N : int
+        The amount of points which must be subdivided to.
+
+    Returns
+    ----------
+    x : NDArray[float]
+        Numpy array of x-coordinates.
+    y : NDArray[float]
+        Numpy array of y-coordinates.
+    """
+
     a = ellipse.a
     b = ellipse.b
 
@@ -37,7 +56,7 @@ def subdivide_ellipse(ellipse: Ellipse, N: int) -> Tuple[NDArray[np.float], NDAr
         t_prime = t + radian_per_hole
 
         # Find a segment (t, t_prime) whose arc length is equal to arc_subdiv by optimization.
-        optim = minimize(arc_length_loss_function, t_prime,
+        optim = minimize(_arc_length_loss_function, t_prime,
                          args=(ellipse, arc_subdiv, t))
         t = optim.x[0]
         ts.append(t)
